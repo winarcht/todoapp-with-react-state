@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
 
-
+import isEqual from 'lodash.isequal';
 
 class TodoList extends Component {
+
+	shouldComponentUpdate(nextProps, nextState) {
+		if (isEqual(nextProps.tasks, this.props.tasks)) {
+			return false;
+		}
+
+		return true;
+	}
+
+/*
+	componentDidUpdate(prevProps, prevState) {		
+		console.log('TodoList updated');
+	}
+*/
 
 	render() {
 		const { tasks, _onClick } = this.props;

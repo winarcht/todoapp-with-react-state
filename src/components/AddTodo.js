@@ -2,6 +2,20 @@ import React, { Component } from 'react';
 
 class AddTodo extends Component {
 
+	shouldComponentUpdate(nextProps, nextState) {
+		if (nextProps.taskBox === this.props.taskBox) {
+			return false;
+		}
+
+		return true;
+	}
+
+/*
+	componentDidUpdate(prevProps, prevState) {
+		console.log('AddTodo updated');
+	}
+*/
+
 	handleChange(e) {
 		this.props._onChange(this.taskInput.value);
 	}
