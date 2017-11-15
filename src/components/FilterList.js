@@ -13,7 +13,7 @@ class FilterList extends Component {
 
 		return (
 			<div id="filter-list">
-				{list}
+				Show: {list}
 			</div>
 		);
 	}
