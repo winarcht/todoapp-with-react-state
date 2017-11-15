@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 class Todo extends Component {
 
+	handleChange(e) {
+		this.props._onClick(e.target.id);
+	}
+
 	render() {
 		const { task } = this.props;
 
@@ -9,7 +13,8 @@ class Todo extends Component {
 
 		return (
 			<li className={classes}>
-				{task.text}
+				<input type="checkbox" id={task.id} checked={task.completed} onChange={this.handleChange.bind(this)} />
+				<label htmlFor={task.id}>{task.text}</label>
 			</li>
 		);		
 	}

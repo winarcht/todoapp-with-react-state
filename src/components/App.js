@@ -17,6 +17,7 @@ class App extends Component {
     };
 
     this.appendTodo = this.appendTodo.bind(this);
+    this.toggleTodo = this.toggleTodo.bind(this);
     this.changeTaskBox = this.changeTaskBox.bind(this);
   }
 
@@ -44,13 +45,31 @@ class App extends Component {
     });
   }
 
+  toggleTodo(id) {
+    this.setState((prevState) => {
+      return {
+        todos: prevState.todos.map((todo) => {
+          if (todo.id === id) {
+            return Object.assign({}, todo, 
+              { 
+                completed: !todo.completed
+              }
+            );
+          }
+
+          return todo;
+        })
+      };
+    });
+  }
+
   render() {
     const { taskBox, todos } = this.state;
 
     return (
       <div id="todo-app">
         <AddTodo taskBox={taskBox} _onChange={this.changeTaskBox} _onSubmit={this.appendTodo} />
-        <TodoList tasks={todos} />
+        <TodoList tasks={todos} _onClick={this.toggleTodo} />
       </div>
     );
   }

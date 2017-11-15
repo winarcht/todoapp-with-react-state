@@ -6,11 +6,11 @@ import Todo from './Todo';
 class TodoList extends Component {
 
 	render() {
-		const { tasks } = this.props;
+		const { tasks, _onClick } = this.props;
 		
 		let todos = tasks.map((todo) => {
 			return (
-				<Todo key={todo.id} task={todo} />
+				<Todo key={todo.id} task={todo} _onClick={_onClick} />
 			);
 		});
 
