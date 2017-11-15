@@ -32,7 +32,6 @@
     margin: 0;
     padding: 0; }
   #todo-list li {
-    padding: .85em .75em;
     border-bottom: 1px solid #999;
     user-select: none; }
     #todo-list li.completed {
@@ -40,7 +39,9 @@
       font-style: italic;
       font-weight: bold; }
   #todo-list label {
-    cursor: pointer; }
+    cursor: pointer;
+    display: block;
+    padding: .85em .75em; }
   #todo-list input[type="checkbox"] {
     display: none; }
 
