@@ -14,11 +14,11 @@ class AddTodo extends Component {
 
 	render() {
 		const { taskBox } = this.props;
-		
+
 		return (
 			<div id="addtodo-form">
 				<form onSubmit={this.handleSubmit.bind(this)}>
-					<input type="text" name="task" placeholder="What do you want to do?" autocomplete="off" value={taskBox} ref={(input) => this.taskInput = input} onChange={this.handleChange.bind(this)} />
+					<input type="text" name="task" placeholder="What do you want to do?" autoComplete="off" value={taskBox} ref={(input) => this.taskInput = input} onChange={this.handleChange.bind(this)} />
 					<input type="submit" value="Add" />
 				</form>
 			</div>
