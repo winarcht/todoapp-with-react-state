@@ -73,6 +73,7 @@
 #footer {
   padding: 0.85em 0.75em;
   font-size: 0.85em;
+  overflow: hidden;
 
 	a,
 	span {
@@ -85,15 +86,16 @@
 	  cursor: pointer;
 	}
 
-	#filter-section {
+	#filter-list {
   	float: right;
-	}
 
-	a:hover {
-  	border-color: #999;
-	}
+  	a:hover {
+  		border-color: #999;
+		}
 
-	#filters span {
-  	border-color: #AAA;
+		span {
+  		border-color: #AAA;
+		}
 	}
+	
 }

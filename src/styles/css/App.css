@@ -47,7 +47,8 @@
 
 #footer {
   padding: 0.85em 0.75em;
-  font-size: 0.85em; }
+  font-size: 0.85em;
+  overflow: hidden; }
   #footer a,
   #footer span {
     border: 1px solid #555;
@@ -57,11 +58,11 @@
     color: #FFF;
     text-decoration: none;
     cursor: pointer; }
-  #footer #filter-section {
+  #footer #filter-list {
     float: right; }
-  #footer a:hover {
-    border-color: #999; }
-  #footer #filters span {
-    border-color: #AAA; }
+    #footer #filter-list a:hover {
+      border-color: #999; }
+    #footer #filter-list span {
+      border-color: #AAA; }
 
 /*# sourceMappingURL=App.css.map */

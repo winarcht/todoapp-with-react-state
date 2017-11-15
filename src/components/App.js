@@ -4,6 +4,7 @@ import './../styles/css/App.css';
 
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
+import Footer from './Footer';
 
 class App extends Component {
 
@@ -13,12 +14,13 @@ class App extends Component {
     this.state = {
       taskBox: '',
       todos: [],
-      selectedFilter: 'all'
+      selectedFilter: FILTERS.ALL
     };
 
     this.appendTodo = this.appendTodo.bind(this);
     this.toggleTodo = this.toggleTodo.bind(this);
     this.changeTaskBox = this.changeTaskBox.bind(this);
+    this.setFilter = this.setFilter.bind(this);
   }
 
   appendTodo(text) {
@@ -63,16 +65,44 @@ class App extends Component {
     });
   }
 
+  setFilter(filter) {
+    this.setState({
+      selectedFilter: filter
+    });    
+  }
+
   render() {
-    const { taskBox, todos } = this.state;
+    const { taskBox, todos, selectedFilter } = this.state;
+    let visibleTodos = [];
+
+    switch (selectedFilter) {
+      case FILTERS.ACTIVE:
+        visibleTodos = todos.filter((todo) => !todo.completed);
+        break;
+
+      case FILTERS.DONE:
+        visibleTodos = todos.filter((todo) => todo.completed);
+        break;
+
+      default:
+        visibleTodos = [...todos];
+        break;
+    }
 
     return (
       <div id="todo-app">
         <AddTodo taskBox={taskBox} _onChange={this.changeTaskBox} _onSubmit={this.appendTodo} />
-        <TodoList tasks={todos} _onClick={this.toggleTodo} />
+        <TodoList tasks={visibleTodos} _onClick={this.toggleTodo} />
+        <Footer filters={FILTERS} selectedFilter={selectedFilter} _onClick={this.setFilter} />
       </div>
     );
   }
+}
+
+const FILTERS = {
+  ACTIVE: 'Active',
+  DONE: 'Done',
+  ALL: 'All'
 }
 
 export default App;
