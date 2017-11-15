@@ -75,6 +75,10 @@
   font-size: 0.85em;
   overflow: hidden;
 
+  #status-bar {
+  	float: left;
+  }
+
 	a,
 	span {
 	  border: 1px solid #555;

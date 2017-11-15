@@ -6,6 +6,8 @@ import AddTodo from './AddTodo';
 import TodoList from './TodoList';
 import Footer from './Footer';
 
+import { FILTERS } from './../Conf.js';
+
 class App extends Component {
 
   constructor(props) {
@@ -93,16 +95,10 @@ class App extends Component {
       <div id="todo-app">
         <AddTodo taskBox={taskBox} _onChange={this.changeTaskBox} _onSubmit={this.appendTodo} />
         <TodoList tasks={visibleTodos} _onClick={this.toggleTodo} />
-        <Footer filters={FILTERS} selectedFilter={selectedFilter} _onClick={this.setFilter} />
+        <Footer filters={FILTERS} tasks={visibleTodos} selectedFilter={selectedFilter} _onClick={this.setFilter} />
       </div>
     );
   }
-}
-
-const FILTERS = {
-  ACTIVE: 'Active',
-  DONE: 'Done',
-  ALL: 'All'
 }
 
 export default App;
